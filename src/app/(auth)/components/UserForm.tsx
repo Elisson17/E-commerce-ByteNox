@@ -1,7 +1,9 @@
 "use client";
+import ButtomProvider from "@/components/ButtomProvider";
 import { Input } from "@/components/Input";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { FaGoogle } from "react-icons/fa";
 
 export default function UserForm() {
   const router = useRouter();
@@ -58,6 +60,7 @@ export default function UserForm() {
           />
           <button type="submit">Entrar</button>
         </form>
+        <ButtomProvider provider="google" callbackUrl="/" icon={FaGoogle} />
       </div>
     </>
   );
