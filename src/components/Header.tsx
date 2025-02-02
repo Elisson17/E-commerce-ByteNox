@@ -9,17 +9,22 @@ import logo from "../../public/image/logo.png";
 import Link from "next/link";
 import LinkItemMenu from "@/utils/LinkItemMenu";
 import { LinkItemHeader } from "@/constant/LinkItemHeader";
+import ThemeButtom from "./ThemeButtom";
 
 export default function Header() {
   const { data: session } = useSession();
   const router = useRouter();
 
   return (
-    <header className="fixed z-50 top-0 left-0 flex h-18 w-full bg-white px-4 flex-col">
+    <header className="fixed z-50 top-0 left-0 flex w-full bg-gray-600 px-4 flex-col">
       <div className="items-center justify-between flex w-full">
         <Link href="/" className="w-40">
-          <Image src={logo} alt="Logo" width={160} height={160} />
+          <Image src={logo} alt="Logo" width={135} height={135} />
         </Link>
+        <div className="flex-grow mx-10 items-center justify-center">
+          <input type="text" id="menu" className="w-full" />
+        </div>
+        <ThemeButtom />
         {session?.user ? (
           <div className="flex items-center gap-4">
             <span className="text-gray-600 text-sm">
@@ -36,7 +41,7 @@ export default function Header() {
           </button>
         )}
       </div>
-      <div className="flex flex-row gap-9 items-center justify-center pb-1">
+      <div className="flex flex-row gap-9 items-center justify-center pb-1 text-white">
         {LinkItemHeader.map((item, index) => (
           <LinkItemMenu key={index} name={item.name} href={item.pathname} />
         ))}

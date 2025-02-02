@@ -8,9 +8,9 @@ interface ContainerProps {
 export default function Container({ children }: ContainerProps) {
   return (
     <>
-    <main className='bg-black'>
+    <main className='bg-black pt-[92px]'>
       <Header />
-      <div className='mt-18 p-4'>
+      <div className='p-4'>
         {children}
       </div>
     </main>

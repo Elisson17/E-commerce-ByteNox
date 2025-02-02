@@ -8,8 +8,8 @@ interface LinkItemMenuProps {
 
 const LinkItemMenu = ({ name, href }: LinkItemMenuProps) => {
   return (
-    <div className="hover:bg-red-300 rounded-md text-xl font-bold ">
-      <Link className="p-2" href={href}>
+    <div className="hover:bg-red-700 p-2 rounded-md text-xl font-bold ">
+      <Link className="p-4" href={href}>
         {name}
       </Link>
     </div>
