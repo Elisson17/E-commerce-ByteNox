@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import Container from "@/components/DefaultContainer/Container";
+import { Hydration } from "@/components/Hydration";
+import { useServerSession as getServerSession } from "@/hooks/useServerSession";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,18 +21,22 @@ export const metadata: Metadata = {
   description: "ByteNox - Hardware e Tecnologia",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession();
+
   return (
     <html lang="pt-BR">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>
-          <Container>{children}</Container>
+        <Providers session={session}>
+          <Hydration>
+            <Container>{children}</Container>
+          </Hydration>
         </Providers>
       </body>
     </html>
