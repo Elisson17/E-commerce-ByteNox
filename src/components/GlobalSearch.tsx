@@ -4,7 +4,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 export default function GlobalSearch() {
   return (
     <div className="w-full flex justify-center">
-      <div className="relative w-full ">
+      <div className="relative w-full mx-2">
         <input
           type="text"
           placeholder="Buscar no site"

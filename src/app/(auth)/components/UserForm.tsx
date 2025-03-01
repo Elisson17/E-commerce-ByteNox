@@ -1,5 +1,5 @@
 "use client";
-import ButtomProvider from "@/components/ButtomProvider";
+import ButtomProvider from "@/components/buttons/ButtomProvider";
 import { Input } from "@/components/Input";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
