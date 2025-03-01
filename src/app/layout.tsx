@@ -5,6 +5,7 @@ import Providers from "@/components/Providers";
 import Container from "@/components/DefaultContainer/Container";
 import { Hydration } from "@/components/Hydration";
 import { useServerSession as getServerSession } from "@/hooks/useServerSession";
+import { ReactNode } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,15 +22,15 @@ export const metadata: Metadata = {
   description: "ByteNox - Hardware e Tecnologia",
 };
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default async function RootLayout({ children }: RootLayoutProps) {
   const session = await getServerSession();
 
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning={true}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
